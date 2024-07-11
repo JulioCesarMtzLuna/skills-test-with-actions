@@ -17,6 +17,9 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    strategy:
+      matrix:
+        node-version: [14, 16, 18]
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -28,7 +31,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: ${{ matrix.node-version }}
 
       - name: Run markdown lint
         run: |
