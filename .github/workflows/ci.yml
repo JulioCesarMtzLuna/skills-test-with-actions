@@ -33,6 +33,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Install dependencies
+        run: npm install
+
       - name: Run markdown lint
         run: |
           npm install remark-cli remark-preset-lint-consistent
